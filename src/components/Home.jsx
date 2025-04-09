@@ -9,10 +9,7 @@ export default function Home() {
 
   return (
     <div className="relative w-full h-full">
-      {/* 배경 이미지 + 투명도 */}
       <div className="absolute inset-0 bg-[url('/subway2.png')] bg-cover bg-center opacity-50"></div>
-
-      {/* 내용 */}
       <div className="relative z-10 w-full h-full">
         {
           login ? (

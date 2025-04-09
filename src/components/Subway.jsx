@@ -96,6 +96,7 @@ export default function Subway() {
         </select>
       </div>
       <div className="w-9/10 grid grid-cols-9 gap4 mt-10">{tags}</div>
+    
     </div>
   );
 }
