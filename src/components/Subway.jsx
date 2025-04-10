@@ -82,7 +82,7 @@ export default function Subway() {
   }, [tdata]);
 
   return (
-    <div className="w-full h-full mt-10 flex flex-col justify-start items-center ">
+    <div className="relative w-full h-full mt-10 flex flex-col justify-start items-center ">
       <div className="w-9/10 grid grid-cols-2 gap-4 ">
         <h1 className="text-2xl font-bold">측정소 선택</h1>
         <select
@@ -100,6 +100,8 @@ export default function Subway() {
       <div className="w-9/10 grid grid-cols-9 gap4 mt-10">
         {tags}
       </div>
+      <img src="/public/subway3.jpg"
+            className="w-6/10 h-7/10"/>
     </div>
   );
 }

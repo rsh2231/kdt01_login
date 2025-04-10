@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <div className="relative w-full h-full">
-      <div className="absolute inset-0 bg-[url('/subway2.png')] bg-cover bg-center opacity-50"></div>
+      <div className="absolute inset-0 bg-[url('/back.jpg')] bg-cover bg-center opacity-50"></div>
       <div className="relative z-10 w-full h-full">
         {
           login ? (

@@ -19,15 +19,14 @@ export default function TodoList() {
 
   // 자료 추가
   const addTodo = async (text, completed) => {
-    const resp = await axios.post(baseurl, {
-      text: text,
-      completed: completed,
-    });
+    await axios.post(baseurl, { text, completed });
+    getData();
   };
 
   // 삭제
   const handleDelete = async (id) => {
     await axios.delete(baseurl + `/${id}`);
+    getData();
   };
 
   // 수정(토글)
@@ -39,12 +38,18 @@ export default function TodoList() {
     await axios.patch(baseurl + `/${id}`, {
       completed: done,
     });
+    getData();
   };
 
   const handleClick = (selected) => {
     const text = refText.current.value; // input에서 값 가져오기
-    if (text.trim() === "") return;
-    addTodo(text, selected);  // 선택된 상태도 같이 전달
+    if (text.trim() === "") {
+      alert("값을 입력하세요.");
+      refText.current.focus();
+      return;
+    }
+
+    addTodo(text, selected); // 선택된 상태도 같이 전달
     refText.current.value = ""; // 입력창 비우기
   };
 
@@ -57,20 +62,30 @@ export default function TodoList() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center w-full h-full">
-      <TodoForm
-        refText={refText} // 프롭스 전달
-        handleClick={handleClick}
-        handleReset={handleReset}
-      />
-      {todos && todos.map((item) => (
-        <TodoItem 
-          key={item.id} 
-          item={item}
-          handleDelete={handleDelete}
-          handleToggle={handleToggle} />
-          
-      ))}
+    <div className="w-full">
+      <div>
+        <TodoForm
+          refText={refText} // 프롭스 전달
+          handleClick={handleClick}
+          handleReset={handleReset}
+        />
+      </div>
+      <div className="w-full flex justify-center i">
+        <div className="flex w-1/2 flex-col">
+          {todos &&
+            todos.map((item) => (
+              <TodoItem
+                key={item.id}
+                item={item}
+                handleDelete={handleDelete}
+                handleToggle={handleToggle}
+              />
+            ))}
+        </div>
+        <div>
+        <img src="/public/study.jpg" className="w-150 h-150" />
+        </div>
+      </div>
     </div>
   );
 }
