@@ -19,6 +19,11 @@ export default function TodoForm({ handleClick, handleReset, refText}) {
           ref={refText} // 부모 ref 사용
           className="bg-white border border-gray-300 text-center rounded-lg  w-100 h-10"
           type="text"
+          onKeyDown={(e) => {
+            if(e.key === "Enter") {
+              handleClick(selected) ;
+            }
+          }}
         />
         <TailButton 
           caption="확인" 
