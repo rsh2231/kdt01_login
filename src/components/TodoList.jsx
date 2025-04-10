@@ -28,7 +28,7 @@ export default function TodoList() {
     const resp = await axios.get(baseurl + `/${id}`);
     const todo = resp.data;
 
-    const done = todo.completed == "O";
+    const done = todo.completed === "O" ? "X" : "O";
     await axios.patch(baseurl + `/${id}`, { completed: done });
     getData();
   };
