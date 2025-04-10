@@ -4,15 +4,17 @@ import { useRef, useState, useEffect } from "react";
 
 export default function Subway() {
   // 초기 데이터 저장
-  const [tdata, setTdata] = useState();
-  const [tags, setTags] = useState();
+  const [tdata, setTdata] = useState(); // 공기 데이터
+  const [tags, setTags] = useState(); // 화면에 보여줄 내용
 
   // ref - select에 접근
   const refSel = useRef();
 
-  // select 요소 생성
-  const ops = sarea.map((item) => (
-    <option key={item["코드"]} value={item["코드"]}>
+  // 지하철역 리스트 만들기
+  const ops = sarea.map(item => (
+    <option 
+      key={item["코드"]} 
+      value={item["코드"]}>
       {item["측정소"]}
     </option>
   ));
@@ -33,7 +35,7 @@ export default function Subway() {
     setTdata(data.response.body.items.item[0]);
   };
 
-  // select 값이 바뀌면 그에 따른 데이터 fetch
+  // select 선택하면 데이터 바꾸기
   const handleChange = () => {
     getFetchData(refSel.current.value);
   };
@@ -42,7 +44,7 @@ export default function Subway() {
     getFetchData("201193");
   }, []);
 
-  // tdata가 바뀌면 실내공기질 측정소별 정보 출력
+  // 화면에 정보 보여주기
   useEffect(() => {
     if (!tdata) return;
 
@@ -95,8 +97,9 @@ export default function Subway() {
           {ops}
         </select>
       </div>
-      <div className="w-9/10 grid grid-cols-9 gap4 mt-10">{tags}</div>
-    
+      <div className="w-9/10 grid grid-cols-9 gap4 mt-10">
+        {tags}
+      </div>
     </div>
   );
 }

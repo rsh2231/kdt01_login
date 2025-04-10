@@ -2,6 +2,7 @@ import { IoHome } from "react-icons/io5";
 import { IoIosSubway } from "react-icons/io";
 import { IoIosLogIn } from "react-icons/io";
 import { IoIosLogOut } from "react-icons/io";
+import { VscChecklist } from "react-icons/vsc";
 import { FaReact } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useAtom } from "jotai";
@@ -28,6 +29,11 @@ export default function Nav() {
         {login &&
           <li className='mx-1 p-2 rounded-sm text-4xl hover:bg-lime-50 hover:text-lime-700'>
             <Link to="/subway"><IoIosSubway /></Link>
+          </li>
+        }
+        {login &&
+          <li className='mx-1 p-2 rounded-sm text-4xl hover:bg-lime-50 hover:text-lime-700'>
+            <Link to="/todolist"><VscChecklist /></Link>
           </li>
         }
       </ul>

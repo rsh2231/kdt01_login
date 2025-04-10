@@ -1,0 +1,24 @@
+{
+  "todos": [
+    {
+      "id": "9542",
+      "text": "JS 공부",
+      "completed": "X"
+    },
+    {
+      "id": "0644",
+      "text": "리액트 공부",
+      "completed": "X"
+    },
+    {
+      "id": "0434",
+      "text": "java 공부",
+      "completed": "X"
+    },
+    {
+      "id": "d1e5",
+      "text": "스프링부트 공부",
+      "completed": "X"
+    }
+  ]
+}

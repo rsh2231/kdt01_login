@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Subway from "./components/Subway";
+import TodoList from "./components/TodoList";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/subway' element={<Subway />} />
+            <Route path='/todolist' element={<TodoList />} />
          </Routes>
       </main>
 
