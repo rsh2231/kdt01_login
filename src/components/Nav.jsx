@@ -18,7 +18,7 @@ export default function Nav() {
 
   return (
     <header className="w-full h-24 bg-pink-100 shadow-lg px-10 flex justify-between items-center">
-      <div className="text-5xl text-blue-600 animate-spin [animation-duration:_4.0s]">
+      <div className={`text-5xl text-blue-600 ${login ? 'animate-spin [animation-duration:_2s]' : ''}`}>
         <FaReact />
       </div>
 
